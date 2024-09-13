@@ -1,11 +1,12 @@
-/home/sblanco2465/codeProjects/personalProjects/speedRead_webapp/speed_read.html
+<!-- /home/sblanco2465/codeProjects/personalProjects/speedRead_webapp/speed_read.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--width="610" height="400" noRS-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Menu (Integrated JavaScript)</title>
+    <title>Speed_Read</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -121,8 +122,7 @@
         class Read_page extends Page {
             constructor(text_variable) {
                 console.log("Read_page");
-                let menu = `
-██████╗ ███████╗ █████╗ ██████╗ ██╗      current speed: ${(localStorage.getItem('readingSpeed') / 1000).toFixed(1)} seconds per line
+                let menu = `██████╗ ███████╗ █████╗ ██████╗ ██╗      current speed: ${(localStorage.getItem('readingSpeed') / 1000).toFixed(1)} seconds per line
 ██╔══██╗██╔════╝██╔══██╗██╔══██╗██║      
 ██████╔╝█████╗  ███████║██║  ██║██║      
 ██╔══██╗██╔══╝  ██╔══██║██║  ██║╚═╝
@@ -133,7 +133,7 @@
                     new Menu_option("Back to Main menu", Main_menu)
                 ];
                 super.display_options(this.menu_options);
-                this.num_lines = 10;
+                this.num_lines = 5;
                 this.lines = [];
                 this.text_variable = text_variable;
                 this.sleep_time = localStorage.getItem('readingSpeed');        
@@ -204,8 +204,7 @@
         }
         class Settings extends Page {
             constructor() {
-                let menu = `
-███████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
+                let menu = `███████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
 ██╔════╝██╔════╝╚══██╔══╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝
 ███████╗█████╗     ██║      ██║   ██║██╔██╗ ██║██║  ███╗███████╗
 ╚════██║██╔══╝     ██║      ██║   ██║██║╚██╗██║██║   ██║╚════██║
@@ -247,14 +246,13 @@
         class Main_menu extends Page {
             constructor() {
                 console.log("main_menu");
-                let main_menu = `
-███████╗██████╗ ███████╗███████╗██████╗       ██████╗ ███████╗ █████╗ ██████╗ 
+                let main_menu = `███████╗██████╗ ███████╗███████╗██████╗       ██████╗ ███████╗ █████╗ ██████╗ 
 ██╔════╝██╔══██╗██╔════╝██╔════╝██╔══██╗      ██╔══██╗██╔════╝██╔══██╗██╔══██╗
 ███████╗██████╔╝█████╗  █████╗  ██║  ██║█████╗██████╔╝█████╗  ███████║██║  ██║
 ╚════██║██╔═══╝ ██╔══╝  ██╔══╝  ██║  ██║╚════╝██╔══██╗██╔══╝  ██╔══██║██║  ██║
 ███████║██║     ███████╗███████╗██████╔╝      ██║  ██║███████╗██║  ██║██████╔╝
 ╚══════╝╚═╝     ╚══════╝╚══════╝╚═════╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ 
-                                                       Created by Steven Blanco`;
+Created by Steven Blanco`;
                let menu_options = [
                     new Menu_option("Set Reading Speed", Settings),
                     new Menu_option("The Dumb Man by Sherwood Anderson", Read_page, the_dumb_man),
