@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--width="610" height="400" noRS-->
     <meta charset="UTF-8">
@@ -14,12 +15,16 @@
             margin: 0 auto;
             padding: 20px;
         }
-        #menu, #output {
+
+        #menu,
+        #output {
             margin-bottom: 20px;
         }
+
         button {
             margin-right: 10px;
         }
+
         #ascii-art {
             font-family: monospace;
             white-space: pre;
@@ -29,6 +34,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="ascii-art"></div>
     <div id="menu"></div>
@@ -83,7 +89,7 @@
             }
         }
         class Menu_option {
-            constructor(name, func, parameters=null) {
+            constructor(name, func, parameters = null) {
                 this.name = name;
                 this.func = func;
                 this.parameters = parameters;
@@ -115,7 +121,7 @@
                 this.num_lines = 5;
                 this.lines = [];
                 this.text_variable = text_variable;
-                this.sleep_time = localStorage.getItem('readingSpeed');        
+                this.sleep_time = localStorage.getItem('readingSpeed');
                 this.isReading = true;
                 this.display();
             }
@@ -125,7 +131,7 @@
                 let line = "";
                 for (let word of wordArray) {
                     if (!this.isReading) return;
-                    if ((line + word).length < 55) {
+                    if ((line + word).length < 70) {
                         line += word + " ";
                     } else {
                         this.lines.push(line);
@@ -160,7 +166,7 @@
                     }
                     for (let i = 0; i < this.num_lines - this.lines.length; i++) {
                         let p = document.createElement("p");
-                        p.textContent = "\u00A0"; 
+                        p.textContent = "\u00A0";
                         p.style.minHeight = "1em";
                         this.outputElement.appendChild(p);
                     }
@@ -192,7 +198,7 @@
                 ];
                 super(menu);
                 super.display_options(menu_options);
-                
+
                 this.speed = "readingSpeed";
                 this.display_description();
             }
@@ -229,7 +235,7 @@
                 localStorage.setItem(this.speed, this.sleep_time);
                 this.display_description();
             }
-        }       
+        }
         class Main_menu extends Page {
             constructor() {
                 let main_menu = `███████╗██████╗ ███████╗███████╗██████╗       ██████╗ ███████╗ █████╗ ██████╗ 
@@ -239,14 +245,14 @@
 ███████║██║     ███████╗███████╗██████╔╝      ██║  ██║███████╗██║  ██║██████╔╝
 ╚══════╝╚═╝     ╚══════╝╚══════╝╚═════╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ 
                                                     Created by Steven Blanco`;
-               let menu_options = [
+                let menu_options = [
                     new Menu_option("Set Reading Speed", Settings),
                     new Menu_option("The Dumb Man by Sherwood Anderson", Read_page, the_dumb_man),
                     new Menu_option("The Divine Spark by George Ade", Read_page, the_divine_spark),
                     new Menu_option("The Endless Tale by James Baldwin", Read_page, the_endless_tale)
-               ];
-               super(main_menu);
-               super.display_options(menu_options);
+                ];
+                super(main_menu);
+                super.display_options(menu_options);
             }
 
             get_input() {
@@ -267,4 +273,5 @@
         document.addEventListener('DOMContentLoaded', main);
     </script>
 </body>
+
 </html>
