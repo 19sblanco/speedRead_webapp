@@ -1,0 +1,3 @@
+settings menu:
+    user enters 0: goes back to main menu
+    user enters 0.5 - 15: sets seconds per line to input value
